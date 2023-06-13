@@ -9,7 +9,7 @@ import { PostSet } from "../api/getSet/route";
 import Link from "next/link";
 import Metaballs from "@/react-metaballs-js/dist";
 
-export default function create(){
+export default function Create(){
     const [languages, setLanguages] = useState(["Loading"])
     const [words, setWords] = useState({0: {"wordPair": ["", ""], "blacklisted": [false, false]}})
     const [name, setName] = useState("")
