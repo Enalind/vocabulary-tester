@@ -1,0 +1,35 @@
+.wrapper{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50wv;
+    height: 50vh;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.item{
+    padding: 5vh;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    width: 60vw;
+    font-size: 3rem;
+}
+
+.balls{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.back{
+    font-size: 2rem;
+}

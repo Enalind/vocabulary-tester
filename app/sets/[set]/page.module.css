@@ -1,0 +1,58 @@
+.main{
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.glossary{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 20vh;
+    font-weight: 700;
+    font-style: italic;
+}
+.glossary input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 5rem;
+    color: white;
+    border: 3px solid white;
+    padding-left: 1vw;
+}
+
+.main > p, .main > h1, .main a{
+    margin: 3vw;
+}
+
+.main > h1{
+    font-size: 6rem;
+}
+
+.back{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.score{
+    text-align: right;
+}
+
+.retry:hover{
+    cursor: pointer;
+}

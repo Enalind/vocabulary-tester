@@ -3,16 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "api": "conda activate & python D:/Machine_Learning_Projects/api.py",
+    "both": "concurrently -n \"API,App\" -c \"bgGreen,bgRed\" \"conda activate & python D:/Machine_Learning_Projects/api.py\" \"npx next dev D:/Machine_Learning_Projects/glossary-trainer\""
   },
   "dependencies": {
-    "eslint": "8.40.0",
-    "eslint-config-next": "13.4.2",
-    "next": "13.4.2",
+    "concurrently": "^8.2.0",
+    "dateformat": "^5.0.3",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.5",
+    "firebase": "^9.22.2",
+    "next": "13.4.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-metaballs-js": "^2.0.0"
   }
 }
