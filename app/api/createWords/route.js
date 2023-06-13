@@ -23,7 +23,7 @@ export async function POST(req){
             [toLang]: toLangArr 
         }
         const validationResponse = await fetch(
-            "http://127.0.0.1:5000/validate",
+            "https://934e-94-255-188-31.ngrok-free.app/validate",
             {
                 method: "POST",
                 body: JSON.stringify(validationJson),

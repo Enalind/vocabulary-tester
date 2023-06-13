@@ -8,7 +8,7 @@ import styles from "./page.module.css"
 export async function generateStaticParams(){
     // const res = await import("./../../api/getSets/route.js")
     // const sets = await (await res.GET()).json()
-    const re = await fetch("https://127.0.0.1:3000/api/getSets")
+    const re = await fetch("/api/getSets")
     const sets = await re.json()
     console.log(sets)
     return sets.map(set1 => ({

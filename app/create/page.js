@@ -18,7 +18,7 @@ export default function create(){
     const [editable, setEditable] = useState([{"id": "loading"}])
 
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/languages").then(response => response.json()).then(json => setLanguages(json))
+        fetch("https://934e-94-255-188-31.ngrok-free.app/languages").then(response => response.json()).then(json => setLanguages(json))
         fetch("/api/getSets").then(data => data.json()).then(json => setEditable(json))
         // const sets = await re.json()
         // GET().then(data => setEditable(data))
