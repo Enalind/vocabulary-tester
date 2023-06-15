@@ -20,7 +20,7 @@ export default function Create(){
 
     useEffect(() => {
         fetch("https://5c7b-94-255-188-31.ngrok-free.app/languages", {headers:{"ngrok-skip-browser-warning": "true"}}).then(response => response.json()).then(json => setLanguages(json))
-        fetch(`/api/getSets`).then(data => data.json()).then(json => setEditable(json))
+        fetch(`/api/getSets`, {next:{revalidate: 20}}).then(data => data.json()).then(json => setEditable(json))
         // const sets = await re.json()
         // GET().then(data => setEditable(data))
     }, [])
