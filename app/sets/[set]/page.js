@@ -7,29 +7,29 @@ import styles from "./page.module.css"
 import { collection, getDocs, getCountFromServer } from "firebase/firestore"
 import {firestore} from "../../../firebase"
 
-export async function generateStaticParams(){
-    // const res = await import("./../../api/getSets/route.js")
-    // const sets = await (await res.GET()).json()
-    // const re = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/getSets`)
-    // const sets = await re.json()
-    let sets = []
-    // const tag = req.nextUrl.searchParams.get("tag")
-    // revalidateTag(tag)
+// export async function generateStaticParams(){
+//     // const res = await import("./../../api/getSets/route.js")
+//     // const sets = await (await res.GET()).json()
+//     // const re = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/getSets`)
+//     // const sets = await re.json()
+//     let sets = []
+//     // const tag = req.nextUrl.searchParams.get("tag")
+//     // revalidateTag(tag)
 
-    const querySnapshot = await getDocs(collection(firestore, "Glossaries"))
-    // const count = await getCountFromServer(collection(firestore, "Glossaries"))
+//     const querySnapshot = await getDocs(collection(firestore, "Glossaries"))
+//     // const count = await getCountFromServer(collection(firestore, "Glossaries"))
     
-    querySnapshot.forEach(doc => {
-        sets.push({id: doc.id, date: doc.data()["date"].toDate()})
-    })
-    // Object.assign(sets, {revalidated: true, now: Date.now()})
-    return sets.map(set1 => ({
-        set: set1["id"]
-    }))
-}
+//     querySnapshot.forEach(doc => {
+//         sets.push({id: doc.id, date: doc.data()["date"].toDate()})
+//     })
+//     // Object.assign(sets, {revalidated: true, now: Date.now()})
+//     return sets.map(set1 => ({
+//         set: set1["id"]
+//     }))
+// }
 
 export default async function glossary({params}){
-    console.log("params[")
+    // console.log("params[")
     const set = decodeURI(params["set"])
     const res = await PostSet(set)
     const words = res["words"]
