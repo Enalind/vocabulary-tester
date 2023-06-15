@@ -53,7 +53,7 @@ export async function POST(req){
             }
             // revalidatePath("/sets/[set]")
             // revalidatePath("/sets")
-            Object.assign(out, { revalidated: true, now: Date.now() })
+            // Object.assign(out, { revalidated: true, now: Date.now() })
             return NextResponse.json(out)
         }
     }
@@ -78,6 +78,7 @@ export async function POST(req){
     // revalidatePath("/sets")
     // revalidatePath("/sets/[set]")
     await batch.commit()
-    return NextResponse.json({ revalidated: true, now: Date.now() })
+    // return NextResponse.json({ revalidated: true, now: Date.now() })
+    return {}
     
 }
