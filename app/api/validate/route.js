@@ -7,7 +7,8 @@ export async function POST(word, target, langauge){
         la: langauge
     }), 
     {
-        method: "POST"
+        method: "POST",
+        headers:{"ngrok-skip-browser-warning": "true"}
     }
     )
     return await response.json()

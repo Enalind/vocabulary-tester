@@ -23,12 +23,13 @@ export async function POST(req){
             [toLang]: toLangArr 
         }
         const validationResponse = await fetch(
-            "https://934e-94-255-188-31.ngrok-free.app/validate",
+            "https://5c7b-94-255-188-31.ngrok-free.app/validate",
             {
                 method: "POST",
                 body: JSON.stringify(validationJson),
                 headers:{
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true"
                 }
             }
         )
