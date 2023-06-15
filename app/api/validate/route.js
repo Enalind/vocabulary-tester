@@ -1,7 +1,7 @@
 
 export async function POST(word, target, langauge){
 
-    const response = await fetch("https://f6c7-94-255-188-31.ngrok-free.app/glossary?" + new URLSearchParams({
+    const response = await fetch("https://5c7b-94-255-188-31.ngrok-free.app/glossary?" + new URLSearchParams({
         targetWord: target.toLowerCase(),
         word: word.toLowerCase(),
         la: langauge
