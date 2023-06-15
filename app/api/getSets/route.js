@@ -17,6 +17,6 @@ export async function GET(req){
     querySnapshot.forEach(doc => {
         out.push({id: doc.id, date: doc.data()["date"].toDate()})
     })
-    Object.assign(out, {revalidated: true, now: Date.now()})
+    // Object.assign(out, {revalidated: true, now: Date.now()})
     return NextResponse.json(out)
 }   

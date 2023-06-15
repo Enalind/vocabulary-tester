@@ -9,6 +9,7 @@ import { PostSet } from "../api/getSet/route";
 import Link from "next/link";
 import Metaballs from "@/react-metaballs-js/dist";
 
+
 export default function Create(){
     const [languages, setLanguages] = useState(["Loading"])
     const [words, setWords] = useState({0: {"wordPair": ["", ""], "blacklisted": [false, false]}})
@@ -19,7 +20,7 @@ export default function Create(){
 
     useEffect(() => {
         fetch("https://934e-94-255-188-31.ngrok-free.app/languages").then(response => response.json()).then(json => setLanguages(json))
-        fetch("/api/getSets").then(data => data.json()).then(json => setEditable(json))
+        fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/getSets`).then(data => data.json()).then(json => setEditable(json))
         // const sets = await re.json()
         // GET().then(data => setEditable(data))
     }, [])

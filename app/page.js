@@ -2,9 +2,13 @@
 import Link from 'next/link'
 import styles from './page.module.css'
 import Metaballs from "../react-metaballs-js/dist/index"
+import { useEffect } from 'react'
 
 
 export default function Home() {
+  useEffect(() => {
+    console.log(process.env.NEXT_PUBLIC_SITE_URL)
+  })
   return (
     <main>
       <div className={styles.master}>
