@@ -42,6 +42,7 @@ export default function Create(){
             'Content-Type': 'application/json',
           },  
           body: jsonBody})
+        response = await response.json()
         fetch("/api/revalidatePages")
         console.log("response")
         console.log(response)

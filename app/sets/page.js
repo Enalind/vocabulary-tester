@@ -8,6 +8,7 @@ import { GET } from "../api/getSets/route"
 const Metaballs = dynamic(() => import("../../metaball-wrapper"), {
     ssr: false
 })
+
 export const revalidate = 20
 
 export default async function viewSets(){
