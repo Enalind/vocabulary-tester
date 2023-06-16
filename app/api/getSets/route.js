@@ -5,6 +5,8 @@ import { revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 // import { NextRequest } from "next/server"
 
+export const revalidate = 20
+
 export async function GET(req){
     let out = []
     // const tag = req.nextUrl.searchParams.get("tag")
