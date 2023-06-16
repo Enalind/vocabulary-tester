@@ -12,7 +12,7 @@ export async function POST(req){
     const fromLangArr = []
     const toLangArr = []
     const validate = body["validate"]
-    if(validate){
+    validationBreak: if(validate){
         for(const wordPair of Object.values(words)){
             fromLangArr.push(wordPair["wordPair"][0])
             toLangArr.push(wordPair["wordPair"][1])
@@ -23,7 +23,7 @@ export async function POST(req){
             [toLang]: toLangArr 
         }
         const validationResponse = await fetch(
-            "https://5c7b-94-255-188-31.ngrok-free.app/validate",
+            `${process.env.NEXT_PUBLIC_NGROK_URL}/validate`,
             {
                 method: "POST",
                 body: JSON.stringify(validationJson),
@@ -33,9 +33,22 @@ export async function POST(req){
                 }
             }
         )
+        // const text = await validationResponse.json()
+        // console.log("await validationResponse.text()")
+        // // console.log(await validationResponse.text())
+        // console.log("(await validationResponse.text()).length")
         
+        // console.log( text)
+        // console.log(text === "{}")
+        // console.log("text === ")
+
+
+        // if(text === new Object){
+        //     break validationBreak
+        // }
+        console.log("Did not break correctly")
         const validationResponseJson = await validationResponse.json()
-        
+        console.log(validationResponseJson)
         const keys = Object.keys(validationResponseJson)
         console.log(keys)
         console.log("keys")
@@ -57,6 +70,7 @@ export async function POST(req){
             return NextResponse.json(out)
         }
     }
+    console.log("SUP")
     let batch = writeBatch(firestore)
     const docData = {
         "toLanguage": toLang,
@@ -75,10 +89,12 @@ export async function POST(req){
         const wordRef = doc(firestore, "Glossaries", body["name"], "Words", i)
         batch.set(wordRef, data)
     }
+    
     // revalidatePath("/sets")
     // revalidatePath("/sets/[set]")
     await batch.commit()
+    console.log("HI")
     // return NextResponse.json({ revalidated: true, now: Date.now() })
-    return {}
+    return NextResponse.json({})
     
 }

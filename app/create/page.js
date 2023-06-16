@@ -19,7 +19,7 @@ export default function Create(){
     const [editable, setEditable] = useState([{"id": "loading"}])
 
     useEffect(() => {
-        fetch("https://5c7b-94-255-188-31.ngrok-free.app/languages", {headers:{"ngrok-skip-browser-warning": "true"}}).then(response => response.json()).then(json => setLanguages(json))
+        fetch(`${process.env.NEXT_PUBLIC_NGROK_URL}/languages`, {headers:{"ngrok-skip-browser-warning": "true"}}).then(response => response.json()).then(json => setLanguages(json))
         fetch(`/api/getSets`, {next:{revalidate: 20}}).then(data => data.json()).then(json => setEditable(json))
         // const sets = await re.json()
         // GET().then(data => setEditable(data))
@@ -115,7 +115,7 @@ export default function Create(){
                     const computedColor1 = words[i]["blacklisted"][0] ? "red": "white"
                     const computedColor2 = words[i]["blacklisted"][1] ? "red": "white"
                     return <>
-                            <input style={{"borderColor": computedColor1}} value={words[i]["wordPair"][0]} className={styles.word} onChange={(e) => {
+                            <input key={i+1} style={{"borderColor": computedColor1}} value={words[i]["wordPair"][0]} className={styles.word} onChange={(e) => {
                                 // console.log(words)
                                 if(!verified){setVerified(true)}
                                 let wordsCopy = Object.assign({}, words)
@@ -124,7 +124,7 @@ export default function Create(){
                                 setWords(wordsCopy)
                                 
                             }}/>
-                            <input style={{"borderColor": computedColor2}} value={words[i]["wordPair"][1]} className={styles.word} onChange={(e) => {
+                            <input key={(i-1)*-1} style={{"borderColor": computedColor2}} value={words[i]["wordPair"][1]} className={styles.word} onChange={(e) => {
                                 if(!verified){setVerified(true)}
                                 
                                 let wordsCopy = Object.assign({}, words)
