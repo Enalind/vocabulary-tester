@@ -46,7 +46,7 @@ export default function Create(){
         // fetch("/api/revalidatePages")
         console.log("response")
         console.log(response)
-        if(response === {} && verified){
+        if(Object.keys(response).length !== 0 && verified){
             const wordCpy = Object.assign({}, words)
             for(const key in Object.keys(wordCpy)){
                 wordCpy[key]["blacklisted"] = [false, false]
