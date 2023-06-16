@@ -43,10 +43,10 @@ export default function Create(){
           },  
           body: jsonBody})
         response = await response.json()
-        fetch("/api/revalidatePages")
+        // fetch("/api/revalidatePages")
         console.log("response")
         console.log(response)
-        if(typeof response === "object" && verified){
+        if(response === {} && verified){
             const wordCpy = Object.assign({}, words)
             for(const key in Object.keys(wordCpy)){
                 wordCpy[key]["blacklisted"] = [false, false]
